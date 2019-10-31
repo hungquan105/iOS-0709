@@ -9,10 +9,35 @@
 import Foundation
 import UIKit
 
-struct Product {
-    var id:String
-    var name:String
-    var image:UIImage
-    var quantity:String
-    var price:String
+//MARK: - ProductList
+public struct ProductList: Codable {
+
+        public var id : String!
+        public var name : String!
+        public var products : [Product]!
+        
 }
+//MARK: - Product
+public struct Product: Codable {
+
+        public var id : String!
+        public var name : String!
+        public var price : String!
+        public var quantity : String!
+        
+}
+//struct Product {
+//    var id:String
+//    var name:String
+//    var image:UIImage
+//    var quantity:String
+//    var price:String
+//}
+
+//struct Category {
+//    var id: String
+//    var name: String
+//}
+
+
+

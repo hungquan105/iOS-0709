@@ -69,7 +69,7 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailBannerCell") as! DetailBannerCell
-            cell.imgv.image = self.product?.image
+            //cell.imgv.image = self.product?.image
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell") as! DetailCell

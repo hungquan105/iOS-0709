@@ -17,6 +17,6 @@ class ProductListItemCell: UICollectionViewCell {
     func bindData(prod: Product){
         lbName.text = prod.name
         lbPrice.text = prod.price
-        imgv.image = prod.image
+        //imgv.image = prod.image
     }
 }

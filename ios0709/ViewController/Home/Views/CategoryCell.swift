@@ -12,9 +12,13 @@ class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var arrCate: [ProductList] = []
+    
+    var didChooseCategory: ((_ id: String)->Void)! = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,14 +31,18 @@ class CategoryCell: UITableViewCell {
 
 extension CategoryCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return arrCate.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryItemCell", for: indexPath) as! CategoryItemCell
-        
+        cell.bindData(cate: arrCate[indexPath.item])
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if didChooseCategory != nil {
+            didChooseCategory(arrCate[indexPath.item].id)
+        }
+    }
 }

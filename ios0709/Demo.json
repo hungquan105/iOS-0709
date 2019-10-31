@@ -1,0 +1,27 @@
+[
+   { "id": "4",
+    "name": "Thoi Trang",
+    "products": [
+    {
+        "id": "0", "name": "iPhone", "quantity": "1", "price": "1000"
+    },
+    {
+        "id": "1", "name": "iPhone1", "quantity": "1", "price": "1000"
+    }
+    ]},
+    
+    {"id": "5",
+    "name": "Cong Nghe",
+    "products": [
+    {
+        "id": "2", "name": "iPhone", "quantity": "1", "price": "1000"
+    },
+    {
+        "id": "3", "name": "iPhone1", "quantity": "1", "price": "1000"
+    },
+    {
+        "id": "4", "name": "iPhone", "quantity": "1", "price": "1000"
+    }
+    ]}
+    
+]

@@ -12,4 +12,9 @@ class CategoryItemCell: UICollectionViewCell {
     
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
+    
+    func bindData(cate: ProductList) {
+        lbTitle.text = cate.name
+    }
 }
+
