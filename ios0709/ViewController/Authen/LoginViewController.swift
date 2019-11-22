@@ -24,8 +24,7 @@ class LoginViewController: NavigationTranlucentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        // Do any additional setup after loading the view
         setupUI()
         setupVar()
         callAPI()
@@ -55,6 +54,8 @@ class LoginViewController: NavigationTranlucentViewController {
     //MARK: - BUTTON ACTIONS
     @IBAction func LOGIN(_ sender: Any) {
         let SCENE_DELEGATE = self.view.window?.windowScene?.delegate as! SceneDelegate
+        // check login
+        
         SCENE_DELEGATE.login(isLoged: true)
     }
     

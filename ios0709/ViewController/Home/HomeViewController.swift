@@ -17,7 +17,6 @@ class HomeViewController: NavigationTranlucentViewController {
     
     var arrProduct:[Product] = []
     var arrCate: [ProductList] = []
-    
     var imgv:UIImageView = UIImageView()
     
     //MARK: VIEW LIFE CYCLE
@@ -50,6 +49,7 @@ class HomeViewController: NavigationTranlucentViewController {
         setupUI()
         setupVar()
         callAPI()
+        
     }
     
     //MARK: - SETUP VAR
@@ -70,17 +70,19 @@ class HomeViewController: NavigationTranlucentViewController {
             let json = try JSONDecoder.init().decode([ProductList].self, from: data)
             arrCate = json
             tableView.reloadData()
-            
         } catch  {
             print("Data error")
         }
         
-        fillData()
+        fillData(id: arrCate[0].id)
     }
     
     //MARK: - FILL AND BIND DATA
-    func fillData() {
-        
+    func fillData(id: String) {
+        // lay id cua danh muc dau tien
+        // func (id)
+        self.arrProduct = self.arrCate.filter{ $0.id == id }.first!.products
+        tableView.reloadData()
     }
     
     //MARK: - BUTTON ACTIONS
@@ -107,6 +109,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.arrCate = arrCate
             cell.didChooseCategory = { (id) in
                 print(id)
+               
+                // cai gi do = func (id)
+                self.fillData(id: id)
             }
             return cell
         }
@@ -124,12 +129,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductListCell", for: indexPath) as! ProductListCell
             cell.arrProduct = self.arrProduct
+            cell.collectionView.reloadData()
+            
             cell.didGoToDetail = { (prod) in
                 let productDetailVC = STORYBOARD_MAIN.instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
                 productDetailVC.product = prod
                 productDetailVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(productDetailVC, animated: true)
             }
+            
             return cell
         } else {
             return UITableViewCell()

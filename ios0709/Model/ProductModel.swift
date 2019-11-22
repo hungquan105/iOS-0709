@@ -12,18 +12,18 @@ import UIKit
 //MARK: - ProductList
 public struct ProductList: Codable {
 
-        public var id : String!
-        public var name : String!
-        public var products : [Product]!
+        public var id : String
+        public var name : String
+        public var products : [Product]
         
 }
 //MARK: - Product
 public struct Product: Codable {
 
-        public var id : String!
-        public var name : String!
-        public var price : String!
-        public var quantity : String!
+        public var id : String
+        public var name : String
+        public var price : String
+        public var quantity : String
         
 }
 //struct Product {
